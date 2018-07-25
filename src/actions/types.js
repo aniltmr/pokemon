@@ -1,0 +1,4 @@
+export const GET_SEARCH_DATA = 'GET_SEARCH_DATA'
+export const AUTH_TOKEN = "AUTH_TOKEN";
+export const GET_ALL_POKEMON ="GET_ALL_POKEMON"
+export const CATCH_POKEMONS = "CATCH_POKEMONS"

@@ -1,0 +1,177 @@
+body {
+	
+				font-family: 'Lato', sans-serif;
+	
+			}
+	
+			img {
+	
+				 width: 100%;
+	
+			 }
+	
+			 .box_model {
+	
+				margin-bottom: 30px;
+	
+			}
+	
+			.box_model_header .pokemon_image img {
+	
+				max-width: 180px;
+				height:200px;
+			}
+	
+			
+			.box_model_header {
+				
+					text-align: center;
+					padding: 15px 15px;
+					background-color: #616161;
+					height: 275px;
+				
+				}
+	
+			.box_model_header .pokemon_image {
+	
+				text-align: center;
+	
+			}
+	
+			.pokemon_details {
+	
+				text-align: left;
+	
+			}
+	
+			.pokemon_details p.name_of_pokemon {
+	
+				margin: 15px 0 0;
+	
+				color: #fff;
+	
+				font-size: 18px;
+	
+				letter-spacing: 1px;
+	
+				text-align: left;
+	
+			}
+	
+			.pokemon_details label {
+	
+				border: 1px solid #fff;
+	
+				padding: 5px 20px;
+	
+				margin: 8px 0 0;
+	
+				border-radius: 60px;
+	
+				color: #fff;
+	
+				font-size: 12px;
+	
+				font-weight: 600;
+	
+			}
+	
+			.box_model_body {
+	
+				padding: 15px;
+	
+				background: rgba(238, 238, 238, 0.63);
+	
+			}
+	
+			.box_model_body ul {
+	
+				list-style: none;
+	
+				padding: 0;
+	
+				margin: 0;
+	
+			}
+	
+			.box_model_body ul li {
+	
+				border-bottom: 1px solid #ddd;
+	
+				padding: 6px 0;
+	
+			}
+	
+			.box_model_body ul li {
+	
+				font-size: 14px;
+	
+				font-weight: 500;
+	
+				color: #616161;
+	
+			}
+	
+			.box_model_body ul li:last-child {
+	
+				border: 0;
+	
+				padding-bottom: 0;
+	
+			}
+	
+			.box_model_body ul li span {
+	
+				float: right;
+	
+				font-size: 20px;
+	
+				font-weight: 600;
+	
+				position: relative;
+	
+				display: inline-block;
+	
+				margin-top: -4px;
+	
+				letter-spacing: 1px;
+	
+			}
+	
+			.pokemon_details a {
+	
+				background: #fff;
+	
+				float: right;
+	
+				position: relative;
+	
+				top: 8px;
+	
+				font-size: 12px;
+	
+				padding: 6px 10px;
+	
+				color: #616161;
+	
+				font-weight: 600;
+	
+				border-radius: 60px;
+	
+				text-decoration: none;
+	
+			}
+	
+			.box_model_footer a {
+	
+				display: block;
+	
+				text-align: center;
+	
+				padding: 10px 0;
+	
+				background: #616161;
+	
+				color: #fff;
+	
+			}
