@@ -54,8 +54,10 @@ const line = {
 class MinMaxLayout extends React.PureComponent {
   constructor(props){
     super(props);
+    const layout = this.generateLayout();
     this.state={
-      first:{ h: 6, i: "1",   w: 6, x: 10, y: 10 }
+      first:{ h: 6, i: "1",   w: 6, x: 10, y: 10 },
+      layout
     }
   }
   
@@ -67,20 +69,17 @@ class MinMaxLayout extends React.PureComponent {
     items: 3,
     rowHeight: 30,
     onLayoutChange: function() {},
-    cols: 12
+    cols: 12,
+    verticalCompact: false
   };
 
+ 
+
   generateDOM() {
-    // Generate items with properties from the layout, rather than pass the layout directly
-    const layout = this.generateLayout();
-    return _.map(layout, function(l) {
-        console.log("layouut------------>", l)
-      const mins = [l.minW, l.minH],
-        maxes = [l.maxW, l.maxH];
+    return _.map(_.range(this.props.items), function(i) {
       return (
-        <div key={l.i} data-grid={l} style={{backgroundColor:"#90ee90"}}>
-          <span className="text" >{l.i}</span>
-          <div className="minMax">{"min:" + mins + " - max:" + maxes}</div>
+        <div key={i} style={{backgroundColor:"#000000"}}>
+          <span className="text">{i}</span>
         </div>
       );
     });
@@ -89,26 +88,16 @@ class MinMaxLayout extends React.PureComponent {
   generateLayout() {
     const p = this.props;
     return _.map(new Array(p.items), function(item, i) {
-      const minW = _.random(1, 6),
-        minH = _.random(1, 6);
-      const maxW = _.random(minW, 20),
-        maxH = _.random(minH, 20);
-      const w = _.random(minW, maxW);
-      const y = _.random(minH, maxH);
-      console.log(maxH, maxW, w, y)
+      const y = _.result(p, "y") || Math.ceil(Math.random() * 4) + 1;
       return {
-        x: 20,
-        y:20,
-        w,
+        x: (i * 2) % 12,
+        y: Math.floor(i / 6) * y,
+        w: 2,
         h: y,
-        i: i.toString(),
-        minW,
-        maxW,
-        minH,
-        maxH
+        i: i.toString()
       };
     });
-  }
+}
 
   onLayoutChange(layout) {
     console.log("la", layout)
@@ -158,11 +147,17 @@ class MinMaxLayout extends React.PureComponent {
           </div>
         </div>
 
-      <div className="row">
+      {/* <div className="row">
         <div className="col-md-6 col-sm-12">
-          <input placeholder="enter max height" onChange={this.handleMaxHeight.bind(this)}/>
+            <ReactGridLayout
+            layout={this.state.layout}
+            onLayoutChange={this.onLayoutChange}
+                  {...this.props}
+                >
+                  {this.generateDOM()}
+          </ReactGridLayout>
         </div>
-      </div>
+      </div> */}
 
         <ReactGridLayout  onLayoutChange={this.onLayoutChange} onResize={this.onResize} onResizeStart={this.onResizeStart}  {...this.props}>
         <div key={this.state.first.i} data-grid={this.state.first} style={{backgroundColor:"#E0FFFF"}}>
